@@ -160,11 +160,13 @@ public class Game {
 			if (player) {
 				do {
 					commandW = cin.nextLine();
+					/* Main.clrscr(); */
 					commandW = commandW.toUpperCase();
 				} while (!computeCommand(board, commandW, player, player));
 			} else {
 				do {
 					commandW = randomCommand();
+					/* Main.clrscr(); */
 					commandW = commandW.toUpperCase();
 				} while (!computeCommand(board, commandW, !player, player));
 				System.out.println(commandW);
@@ -172,7 +174,6 @@ public class Game {
 			cmd.add(commandW);
 
 			// stampa scacchiera
-			System.out.println("\n");
 			Main.printChessBoard(board);
 
 			// controlla se la partita e'finita
@@ -203,11 +204,13 @@ public class Game {
 			if (!player) {
 				do {
 					commandB = cin.nextLine();
+					/* Main.clrscr(); */
 					commandB = commandB.toUpperCase();
 				} while (!computeCommand(board, commandB, player, !player));
 			} else {
 				do {
 					commandB = randomCommand();
+					/* Main.clrscr(); */
 					commandB = commandB.toUpperCase();
 				} while (!computeCommand(board, commandB, !player, !player));
 				System.out.println(commandB);
@@ -216,7 +219,6 @@ public class Game {
 			cmd.add(commandB);
 
 			// stampa scacchiera
-			System.out.println("\n");
 			Main.printChessBoard(board);
 
 			// controlla se la partita e'finita
@@ -235,7 +237,7 @@ public class Game {
 
 	public void startCC() {
 		// PC vs PC ha un massimo di mosse
-		int mosseMax = 50;
+		int mosseMax = 200;
 		System.out.println("\nNumero massimo di mosse: " + mosseMax + " per giocatore");
 
 		ChessBoard board = new ChessBoard();
@@ -261,6 +263,7 @@ public class Game {
 			// Estrazione casuale del comando da parte del PC affinchè non sia valido.
 			do {
 				commandPC1 = randomCommand();
+				/* Main.clrscr(); */
 			} while (!computeCommand(board, commandPC1, true, false));
 
 			// stampa il comando
@@ -268,7 +271,6 @@ public class Game {
 			System.out.println(commandPC1);
 
 			// stampa scacchiera
-			System.out.println("\n");
 			Main.printChessBoard(board);
 
 			// controlla se la partita e'finita
@@ -280,6 +282,15 @@ public class Game {
 				System.out.println("Patta: Mosse ripetute");
 				break;
 			}
+
+			/*
+			 * try {
+			 * TimeUnit.SECONDS.sleep(1);
+			 * } catch (InterruptedException e) {
+			 * // TODO Auto-generated catch block
+			 * e.printStackTrace();
+			 * }
+			 */
 
 			// --------------------------- turno del nero ---------------------------------
 
@@ -298,6 +309,7 @@ public class Game {
 			// Estrazione casuale del comando da parte del PC affinchè non sia valido.
 			do {
 				commandPC2 = randomCommand();
+				/* Main.clrscr(); */
 			} while (!computeCommand(board, commandPC2, false, false));
 
 			// stampa comando
@@ -305,7 +317,6 @@ public class Game {
 			System.out.println(commandPC2);
 
 			// stampa scacchiera
-			System.out.println("\n");
 			Main.printChessBoard(board);
 
 			// controlla se la partita e'finita
@@ -317,6 +328,16 @@ public class Game {
 				System.out.println("Patta: Mosse ripetute");
 				break;
 			}
+
+			/*
+			 * try {
+			 * TimeUnit.SECONDS.sleep(1);
+			 * } catch (InterruptedException e) {
+			 * // TODO Auto-generated catch block
+			 * e.printStackTrace();
+			 * }
+			 */
+
 			mosseMax--;
 		}
 		if (mosseMax == 0) {
